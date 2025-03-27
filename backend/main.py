@@ -1,16 +1,21 @@
-# This is a sample Python script.
+from fastapi import FastAPI
+from generator import generate_resume, generate_cover_letter
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+app = FastAPI()
 
+@app.get("/")
+def home():
+    return {"message": "Resume and Cover Letter Generator API"}
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+@app.post("/generate_resume/")
+def resume(name: str, experience: str, skills: str, job_desc: str):
+    return {"resume": generate_resume(name, experience, skills, job_desc)}
 
+@app.post("/generate_cover_letter/")
+def cover_letter(name: str, company: str, job_desc: str):
+    return {"cover_letter": generate_cover_letter(name, company, job_desc)}
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
