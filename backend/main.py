@@ -17,5 +17,8 @@ def cover_letter(name: str, company: str, job_desc: str):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000) # Runs on http://127.0.0.1:8000/docs
+    # uvicorn backend.main:app --reload
+
+
 
