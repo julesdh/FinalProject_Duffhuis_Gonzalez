@@ -1,6 +1,6 @@
 import openai
 import os
-from prompts import resume_prompt, cover_letter_prompt
+from backend.prompts import resume_prompt, cover_letter_prompt
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 

@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from generator import generate_resume, generate_cover_letter
+from backend.generator import generate_resume, generate_cover_letter
 
 app = FastAPI()
 
