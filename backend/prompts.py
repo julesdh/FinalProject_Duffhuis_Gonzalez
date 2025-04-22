@@ -2,6 +2,7 @@ resume_prompt = """
 Generate a professional resume for {name} based on the following:
 Experience: {experience}
 Skills: {skills}
+Education: {education}
 Job Description: {job_desc}
 Ensure ATS optimization.
 """
